@@ -4,18 +4,17 @@ local M = {}
 function M.markdownNotes()
   vim.cmd('syntax sync linebreaks=1')
 
-  -- TODO dry up regexes with string interpolation?
-  vim.cmd([[syntax match notesDoneItem /^\(\s\+\).*\<DONE\>.*\(\n\1\s.*\)*/]])
+  vim.cmd([[syntax match notesDoneItem ]] .. itemRegex('DONE'))
   vim.cmd([[syntax match notesDoneMarker /\<DONE\>/ containedin=notesDoneItem]])
   vim.api.nvim_set_hl(0, "notesDoneMarker", {link = "Question" })
   vim.api.nvim_set_hl(0, "notesDoneItem", {link = "Comment" })
 
-  vim.cmd([[syntax match notesBlockedItem /^\(\s\+\).*\<BLOCKED\>.*\(\n\1\s.*\)*/]])
+  vim.cmd([[syntax match notesBlockedItem ]] .. itemRegex('BLOCKED'))
   vim.cmd([[syntax match notesBlockedMarker /\<BLOCKED\>/ containedin=notesBlockedItem]])
   vim.api.nvim_set_hl(0, "notesBlockedItem", {link = "Comment" })
   vim.api.nvim_set_hl(0, "notesBlockedMarker", {link = "Directory" })
 
-  vim.cmd([[syntax match notesXXXItem /^\(\s\+\).*\<XXX\>.*\(\n\1\s.*\)*/]])
+  vim.cmd([[syntax match notesXXXItem ]] .. itemRegex('XXX'))
   vim.cmd([[syntax match notesXXXMarker /\<XXX\>/ containedin=notesXXXItem]])
   vim.api.nvim_set_hl(0, "notesXXXItem", {link = "Comment" })
   vim.api.nvim_set_hl(0, "notesXXXMarker", {link = "WarningMsg" })
@@ -26,4 +25,7 @@ function M.markdownNotes()
   vim.api.nvim_set_hl(0, "notesInProgress", {link = "Directory" })
 end
 
+function itemRegex(word)
+  return [[/^\(\s\+\).*\<]] .. word .. [[\>.*\(\n\1\s.*\)*/]]
+end
 return M
