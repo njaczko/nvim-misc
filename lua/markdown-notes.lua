@@ -20,8 +20,9 @@ function M.markdownNotes()
   vim.api.nvim_set_hl(0, "notesXXXMarker", {link = "WarningMsg" })
 
   vim.cmd([[syntax match notesTodo /\<TODO\>/]])
-  vim.cmd([[syntax match notesInProgress /\<WIP\>/]])
   vim.api.nvim_set_hl(0, "notesTodo", {link = "WarningMsg" })
+
+  vim.cmd([[syntax match notesInProgress /\<WIP\>/]])
   vim.api.nvim_set_hl(0, "notesInProgress", {link = "Directory" })
 end
 
