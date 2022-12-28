@@ -1,6 +1,7 @@
 local M = {}
 
--- TODO doc string
+-- markdownNotes provides highlighted keywords for bulleted note taking, as
+-- inspired by the vim-notes plugin: https://github.com/xolox/vim-notes
 function M.markdownNotes()
   vim.cmd('syntax sync linebreaks=1')
 
