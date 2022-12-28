@@ -3,6 +3,10 @@ local M = {}
 -- markdownNotes provides highlighted keywords for bulleted note taking, as
 -- inspired by the vim-notes plugin: https://github.com/xolox/vim-notes
 function M.markdownNotes()
+  vim.api.nvim_set_option_value('filetype', 'markdown')
+
+  -- NOTE: if we have more issues with the redrawing in the multi-line highlight
+  -- groups we may have to increase this number. see `:h syn-sync-linebreaks`
   vim.cmd('syntax sync linebreaks=1')
 
   vim.cmd([[syntax match notesDoneItem ]] .. itemRegex('DONE'))
