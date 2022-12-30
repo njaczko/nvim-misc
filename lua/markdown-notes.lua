@@ -30,6 +30,6 @@ function M.markdownNotes()
 end
 
 function itemRegex(word)
-  return [[/^\(\s\+\).*\<]] .. word .. [[\>.*\(\n\1\s.*\)*/]]
+  return [[/^\(\s*\).*\<]] .. word .. [[\>.*\(\n\1\s.*\)*/]]
 end
 return M
