@@ -3,9 +3,11 @@ local M = {}
 -- markdownNotes provides highlighted keywords for bulleted note taking, as
 -- inspired by the vim-notes plugin: https://github.com/xolox/vim-notes
 function M.markdownNotes()
-  -- NOTE: if we have more issues with the redrawing in the multi-line highlight
-  -- groups we may have to increase this number. see `:h syn-sync-linebreaks`
+  -- needed for redrawing the multi-line highlight groups correctly. see `:h syn-sync-linebreaks`
   vim.cmd('syntax sync linebreaks=1')
+
+  -- case sensitive matching
+  vim.cmd('syntax case match')
 
   vim.cmd([[syntax match notesDoneItem ]] .. itemRegex('DONE'))
   vim.cmd([[syntax match notesDoneMarker /\<DONE\>/ containedin=notesDoneItem]])
