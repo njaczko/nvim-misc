@@ -29,9 +29,26 @@ function M.markdownNotes()
 
   vim.cmd([[syntax match notesInProgress /\<WIP\>/]])
   vim.api.nvim_set_hl(0, "notesInProgress", {link = "Directory" })
+
+  defineKeywordReplacementCommands()
 end
 
+-- matches a bullet item
 function itemRegex(word)
   return [[/^\(\s*\).*\<]] .. word .. [[\>.*\(\n\1\s.*\)*/]]
 end
+
+-- replaceKeyword replaces item keyword in the current line
+function replaceKeyword(word)
+  vim.cmd([[s/TODO\|DONE\|XXX\|BLOCKED/]] .. word)
+end
+
+function defineKeywordReplacementCommands()
+  vim.cmd[[command! Todo lua replaceKeyword('TODO')]]
+  vim.cmd[[command! Wip lua replaceKeyword('WIP')]]
+  vim.cmd[[command! Done lua replaceKeyword('DONE')]]
+  vim.cmd[[command! Xxx lua replaceKeyword('XXX')]]
+  vim.cmd[[command! Blocked lua replaceKeyword('BLOCKED')]]
+end
+
 return M
