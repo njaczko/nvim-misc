@@ -13,3 +13,5 @@ autocmd FileType markdown.markdownnotes lua require("markdown-notes").markdownNo
 command! HighlightGroupViewer lua require("highlight-group-viewer").highlightGroupViewer()
 
 command! Synstack lua require("synstack").synstack()
+
+autocmd Filetype zshhistory lua require("zsh-history").highlightZSHHistory()
