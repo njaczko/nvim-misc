@@ -11,3 +11,5 @@ command! MarkdownNotes lua require("markdown-notes").markdownNotes()
 autocmd FileType markdown.markdownnotes lua require("markdown-notes").markdownNotes()
 
 command! HighlightGroupViewer lua require("highlight-group-viewer").highlightGroupViewer()
+
+command! Synstack lua require("synstack").synstack()
