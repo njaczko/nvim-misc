@@ -41,6 +41,7 @@ end
 -- replaceKeyword replaces item keyword in the current line
 function replaceKeyword(word)
   vim.cmd([[s/TODO\|WIP\|DONE\|XXX\|BLOCKED/]] .. word)
+  vim.cmd('noh')
 end
 
 function defineKeywordReplacementCommands()
