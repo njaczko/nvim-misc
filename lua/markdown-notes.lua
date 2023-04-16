@@ -45,11 +45,11 @@ function replaceKeyword(word)
 end
 
 function defineKeywordReplacementCommands()
-  vim.cmd[[command! Todo lua replaceKeyword("TODO")]]
-  vim.cmd[[command! Wip lua replaceKeyword("WIP")]]
-  vim.cmd[[command! Done lua replaceKeyword("DONE")]]
-  vim.cmd[[command! Xxx lua replaceKeyword("XXX")]]
-  vim.cmd[[command! Blocked lua replaceKeyword("BLOCKED")]]
+  vim.api.nvim_create_user_command('Todo', [[lua replaceKeyword("TODO")]], {})
+  vim.api.nvim_create_user_command('Wip', [[lua replaceKeyword("WIP")]], {})
+  vim.api.nvim_create_user_command('Done', [[lua replaceKeyword("DONE")]], {})
+  vim.api.nvim_create_user_command('Xxx', [[lua replaceKeyword("XXX")]], {})
+  vim.api.nvim_create_user_command('Blocked', [[lua replaceKeyword("BLOCKED")]], {})
 end
 
 return M
