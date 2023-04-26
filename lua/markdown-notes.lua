@@ -19,6 +19,11 @@ function M.markdownNotes()
   vim.api.nvim_set_hl(0, "notesBlockedItem", {link = "Comment" })
   vim.api.nvim_set_hl(0, "notesBlockedMarker", {link = "Directory" })
 
+  vim.cmd([[syntax match notesWaitingItem ]] .. itemRegex("WAITING"))
+  vim.cmd([[syntax match notesWaitingMarker /\<WAITING\>/ containedin=notesWaitingItem]])
+  vim.api.nvim_set_hl(0, "notesWaitingItem", {link = "Comment" })
+  vim.api.nvim_set_hl(0, "notesWaitingMarker", {link = "Directory" })
+
   vim.cmd([[syntax match notesXXXItem ]] .. itemRegex("XXX"))
   vim.cmd([[syntax match notesXXXMarker /\<XXX\>/ containedin=notesXXXItem]])
   vim.api.nvim_set_hl(0, "notesXXXItem", {link = "Comment" })
@@ -40,7 +45,7 @@ end
 
 -- replaceKeyword replaces item keyword in the current line
 function replaceKeyword(word)
-  vim.cmd([[s/TODO\|WIP\|DONE\|XXX\|BLOCKED/]] .. word .. "/e")
+  vim.cmd([[s/TODO\|WIP\|DONE\|XXX\|BLOCKED\|WAITING/]] .. word .. "/e")
   vim.cmd("noh")
 end
 
@@ -50,6 +55,7 @@ function defineKeywordReplacementCommands()
   vim.api.nvim_create_user_command('Done', [[lua replaceKeyword("DONE")]], {})
   vim.api.nvim_create_user_command('Xxx', [[lua replaceKeyword("XXX")]], {})
   vim.api.nvim_create_user_command('Blocked', [[lua replaceKeyword("BLOCKED")]], {})
+  vim.api.nvim_create_user_command('Waiting', [[lua replaceKeyword("WAITING")]], {})
 end
 
 return M
