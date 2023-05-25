@@ -1,6 +1,8 @@
 local M = {}
 
--- TODO doc string
+-- openGithub opens the current line in the browser in github.com. It's a bit
+-- fragile: the repo must have been cloned from GitHub using SSH. Opening a
+-- range of lines is not supported.
 function M.openGithub()
   local function exec(cmd)
     -- shell out then strip trailing whitespace
@@ -9,7 +11,7 @@ function M.openGithub()
     return output
   end
 
-  -- TODO check if ssh or https. will assume ssh for now.
+  -- assumes the repo was cloned with SSH rather than HTTPS.
   originURL  = exec('git remote get-url origin'):gsub("git@github.com:", "https://github.com/"):gsub("%.git", "")
   defaultBranch = exec("git remote show origin | sed -n '/HEAD branch/s/.*: //p'")
   pathInRepo = exec(string.format("git ls-files --full-name %s", vim.fn.expand('%')))

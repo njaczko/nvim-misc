@@ -1,22 +1,7 @@
 # nvim-misc
 
-A collection of mini lua plugins.
+A collection of mini neovim plugins, written in Lua.
 
-## Commands
-
-These user-defined commands are exported.
-
-### OpenGithub
-
-Usage: `:OpenGithub`
-TODO
-Assumes ABC
-Does XYZ
-
-### FmtCert
-
-Usage: `:FmtCert`
-
-TODO
-Assumes ABC
-Does XYZ
+Check out [plugin/nvim-misc.vim](./plugin/nvim-misc.vim) to see the commands and
+file types that are exposed. Explore doc strings in the lua source for more
+information about features.

@@ -14,8 +14,10 @@ local builtin_groups = {
   "Whitespace", "WildMenu", "WinBar", "WinBarNC", "WinSeparator", "lCursor",
 }
 
+-- highlightGroupViewer displays builtin highlighting groups (see :h
+-- highlight-groups) and their configured highlighting.
 function M.highlightGroupViewer()
-  -- TODO open fresh buffer and write to rather than using the current buffer
+  -- TODO open fresh buffer and write to it rather than using the current buffer
 
   for k,v in pairs(builtin_groups) do
     vim.cmd(
