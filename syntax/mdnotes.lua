@@ -6,21 +6,6 @@ function itemRegex(word)
   return [[/^\(\s*\).*\<]] .. word .. [[\>.*\(\n\1\s.*\)*/]]
 end
 
--- replaceKeyword replaces item keyword in the current line
-function replaceKeyword(word)
-  vim.cmd([[s/TODO\|WIP\|DONE\|XXX\|BLOCKED/]] .. word .. "/e")
-  vim.cmd("noh")
-end
-
--- TODO this isn't part of the syntax highlighting. we should move it somewhere else.
-function defineKeywordReplacementCommands()
-  vim.api.nvim_create_user_command('Todo', [[lua replaceKeyword("TODO")]], {})
-  vim.api.nvim_create_user_command('Wip', [[lua replaceKeyword("WIP")]], {})
-  vim.api.nvim_create_user_command('Done', [[lua replaceKeyword("DONE")]], {})
-  vim.api.nvim_create_user_command('Xxx', [[lua replaceKeyword("XXX")]], {})
-  vim.api.nvim_create_user_command('Blocked', [[lua replaceKeyword("BLOCKED")]], {})
-end
-
 -- needed for redrawing the multi-line highlight groups correctly. see `:h syn-sync-linebreaks`
 vim.cmd("syntax sync linebreaks=1")
 
@@ -47,5 +32,3 @@ vim.api.nvim_set_hl(0, "notesTodo", {link = "WarningMsg" })
 
 vim.cmd([[syntax match notesInProgress /\<WIP\>/]])
 vim.api.nvim_set_hl(0, "notesInProgress", {link = "Directory" })
-
-defineKeywordReplacementCommands()
