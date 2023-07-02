@@ -3,15 +3,7 @@ if exists("g:loaded_nvim_misc")
 endif
 let g:loaded_nvim_misc = 1
 
-command! OpenGithub lua require("open-github").openGithub()
-
-command! FmtCert lua require("fmt-cert").formatX509Cert()
-
-command! MarkdownNotes lua require("markdown-notes").markdownNotes()
-autocmd FileType markdown.markdownnotes lua require("markdown-notes").markdownNotes()
-
-command! HighlightGroupViewer lua require("highlight-group-viewer").highlightGroupViewer()
-
-autocmd Filetype zshhistory lua require("zsh-history").highlightZSHHistory()
-
+command OpenGithub lua require("open-github").openGithub()
+command FmtCert lua require("fmt-cert").formatX509Cert()
+command HighlightGroupViewer lua require("highlight-group-viewer").highlightGroupViewer()
 command FmtJSONLogs lua require("json-logs").formatJSONLogs()
