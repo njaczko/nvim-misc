@@ -22,6 +22,11 @@ vim.cmd([[syntax match notesBlockedMarker /\<BLOCKED\>/ containedin=notesBlocked
 vim.api.nvim_set_hl(0, "notesBlockedItem", {link = "Comment" })
 vim.api.nvim_set_hl(0, "notesBlockedMarker", {link = "Directory" })
 
+vim.cmd([[syntax match notesWaitingItem ]] .. itemRegex("WAITING"))
+vim.cmd([[syntax match notesWaitingMarker /\<WAITING\>/ containedin=notesWaitingItem]])
+vim.api.nvim_set_hl(0, "notesWaitingItem", {link = "Comment" })
+vim.api.nvim_set_hl(0, "notesWaitingMarker", {link = "Directory" })
+
 vim.cmd([[syntax match notesXXXItem ]] .. itemRegex("XXX"))
 vim.cmd([[syntax match notesXXXMarker /\<XXX\>/ containedin=notesXXXItem]])
 vim.api.nvim_set_hl(0, "notesXXXItem", {link = "Comment" })
