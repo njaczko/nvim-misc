@@ -13,6 +13,9 @@ function M.configureGruvbox()
 
     colorscheme gruvbox
 
+    " NOTE: this is redundant for gruvbox, but makes retrobox match gruvbox.
+    highlight Normal ctermfg=223 guifg=#ebdbb2
+
     highlight clear SignColumn " no background for line numbers
     " dark gray highlight for folded lines
     highlight Folded guibg=#404040
