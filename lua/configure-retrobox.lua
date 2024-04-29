@@ -26,10 +26,13 @@ function M.configureRetrobox()
     highlight StatusLine cterm=reverse ctermfg=239 ctermbg=223 gui=bold,reverse guifg=#ebdbb2 guibg=#ebdbb2
     highlight Pmenu ctermfg=223 ctermbg=237 guifg=#ebdbb2 guibg=#3c3836
     highlight TabLineSel cterm=bold ctermfg=223 ctermbg=234 gui=bold guifg=#fbf1c7 guibg=#1c1c1c
-    " TODO some highlights that still look different (worse) than Gruvbox:
-    " - git diff (bright green)
-    " - nvim -d diff (DiffChange and DiffAdd are too similar, DiffDelete is too bright)
-    " - search results (Search and CurSearch are weird green)
+    highlight CurSearch ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow
+    highlight Search cterm=reverse ctermfg=214 ctermbg=235 gui=reverse guifg=#fabd2f guibg=#282828
+    highlight DiffAdd cterm=reverse ctermfg=142 ctermbg=235 gui=reverse guifg=#b8bb26 guibg=#282828
+    highlight DiffChange cterm=reverse ctermfg=108 ctermbg=235 gui=reverse guifg=#8ec07c guibg=#282828
+    highlight DiffDelete cterm=reverse ctermfg=167 ctermbg=235 gui=reverse guifg=#fb4934 guibg=#282828
+    highlight Added ctermfg=142 guifg=#b8bb26 " GruvboxGreen
+    highlight Removed ctermfg=167 guifg=#fb4934 " GruvboxRed
 
     highlight clear SignColumn " no background for line numbers
     " dark gray highlight for folded lines
@@ -68,5 +71,39 @@ function M.configureRetrobox()
     hi @markup.link.url.markdown_inline ctermfg=175 guifg=#d3869b " URI references. GruvboxPurple
   ]])
 end
+
+-- FYI, here are the Gruvbox colors for future override reference:
+-- GruvboxFg0     ctermfg=229 guifg=#fbf1c7
+-- GruvboxFg1     ctermfg=223 guifg=#ebdbb2
+-- GruvboxFg2     ctermfg=250 guifg=#d5c4a1
+-- GruvboxFg3     ctermfg=248 guifg=#bdae93
+-- GruvboxFg4     ctermfg=246 guifg=#a89984
+-- GruvboxGray    ctermfg=245 guifg=#928374
+-- GruvboxBg0     ctermfg=235 guifg=#282828
+-- GruvboxBg1     ctermfg=237 guifg=#3c3836
+-- GruvboxBg2     ctermfg=239 guifg=#504945
+-- GruvboxBg3     ctermfg=241 guifg=#665c54
+-- GruvboxBg4     ctermfg=243 guifg=#7c6f64
+-- GruvboxRed     ctermfg=167 guifg=#fb4934
+-- GruvboxRedBold cterm=bold ctermfg=167 gui=bold guifg=#fb4934
+-- GruvboxGreen   ctermfg=142 guifg=#b8bb26
+-- GruvboxGreenBold cterm=bold ctermfg=142 gui=bold guifg=#b8bb26
+-- GruvboxYellow  ctermfg=214 guifg=#fabd2f
+-- GruvboxYellowBold cterm=bold ctermfg=214 gui=bold guifg=#fabd2f
+-- GruvboxBlue    ctermfg=109 guifg=#83a598
+-- GruvboxBlueBold cterm=bold ctermfg=109 gui=bold guifg=#83a598
+-- GruvboxPurple  ctermfg=175 guifg=#d3869b
+-- GruvboxPurpleBold cterm=bold ctermfg=175 gui=bold guifg=#d3869b
+-- GruvboxAqua    ctermfg=108 guifg=#8ec07c
+-- GruvboxAquaBold cterm=bold ctermfg=108 gui=bold guifg=#8ec07c
+-- GruvboxOrange  ctermfg=208 guifg=#fe8019
+-- GruvboxOrangeBold cterm=bold ctermfg=208 gui=bold guifg=#fe8019
+-- GruvboxRedSign ctermfg=167 ctermbg=237 guifg=#fb4934 guibg=#3c3836
+-- GruvboxGreenSign ctermfg=142 ctermbg=237 guifg=#b8bb26 guibg=#3c3836
+-- GruvboxYellowSign ctermfg=214 ctermbg=237 guifg=#fabd2f guibg=#3c3836
+-- GruvboxBlueSign ctermfg=109 ctermbg=237 guifg=#83a598 guibg=#3c3836
+-- GruvboxPurpleSign ctermfg=175 ctermbg=237 guifg=#d3869b guibg=#3c3836
+-- GruvboxAquaSign ctermfg=108 ctermbg=237 guifg=#8ec07c guibg=#3c3836
+-- GruvboxOrangeSign ctermfg=208 ctermbg=237 guifg=#fe8019 guibg=#3c3836
 
 return M
