@@ -13,12 +13,22 @@ function M.configureRetrobox()
 
     colorscheme retrobox
 
+    " TODO see if we get more robust parity between gruvbox and retrobox without all these overrides
     " NOTE: these are redundant for gruvbox, but make retrobox match gruvbox.
     highlight Normal ctermfg=223 guifg=#ebdbb2 " GruvboxFg1
     highlight Ignore ctermfg=223 guifg=#ebdbb2 " GruvboxFg1
     highlight Keyword ctermfg=167 guifg=#fb4934 " GruvboxRed
+    highlight Conditional ctermfg=167 guifg=#fb4934 " GruvboxRed
+    highlight Repeat ctermfg=167 guifg=#fb4934 " GruvboxRed
+    highlight Statement ctermfg=167 guifg=#fb4934 " GruvboxRed
+    highlight Label ctermfg=167 guifg=#fb4934 " GruvboxRed
+    highlight SpecialChar ctermfg=167 guifg=#fb4934 " GruvboxRed
     highlight StatusLine cterm=reverse ctermfg=239 ctermbg=223 gui=bold,reverse guifg=#ebdbb2 guibg=#ebdbb2
     highlight Pmenu ctermfg=223 ctermbg=237 guifg=#ebdbb2 guibg=#3c3836
+    " TODO some highlights that still look different (worse) than Gruvbox:
+    " - git diff (bright green)
+    " - nvim -d diff (DiffChange and DiffAdd are too similar, DiffDelete is too bright)
+    " - search results (Search and CurSearch are weird green)
 
     highlight clear SignColumn " no background for line numbers
     " dark gray highlight for folded lines
@@ -33,6 +43,13 @@ function M.configureRetrobox()
     call matchadd('YellowBG', '<Paste>')
     call matchadd('YellowBG', 'TODO')
 
+    " nested bullets are confused for code blocks because they start with many
+    " spaces. code fenced with backticks is still highlighted.
+    highlight link markdownCodeBlock Normal
+    " some things that are technically invalid markdown syntax (like unescaped
+    " underscores) don't really cause issues for my use cases. the error
+    " highlights are more of a nuisance than a help for me.
+    hi link markdownError Normal
 
     " tree sitter overrides
     " jsonnet

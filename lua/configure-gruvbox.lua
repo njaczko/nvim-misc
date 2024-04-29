@@ -23,6 +23,14 @@ function M.configureGruvbox()
     call matchadd('YellowBG', '<Paste>')
     call matchadd('YellowBG', 'TODO')
 
+    " nested bullets are confused for code blocks because they start with many
+    " spaces. code fenced with backticks is still highlighted.
+    highlight link markdownCodeBlock Normal
+    " some things that are technically invalid markdown syntax (like unescaped
+    " underscores) don't really cause issues for my use cases. the error
+    " highlights are more of a nuisance than a help for me.
+    hi link markdownError Normal
+
     " tree sitter overrides
     " jsonnet
     hi link @variable.jsonnet Normal
