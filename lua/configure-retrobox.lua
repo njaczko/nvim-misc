@@ -25,6 +25,7 @@ function M.configureRetrobox()
     highlight SpecialChar ctermfg=167 guifg=#fb4934 " GruvboxRed
     highlight StatusLine cterm=reverse ctermfg=239 ctermbg=223 gui=bold,reverse guifg=#ebdbb2 guibg=#ebdbb2
     highlight Pmenu ctermfg=223 ctermbg=237 guifg=#ebdbb2 guibg=#3c3836
+    highlight TabLineSel cterm=bold ctermfg=223 ctermbg=234 gui=bold guifg=#fbf1c7 guibg=#1c1c1c
     " TODO some highlights that still look different (worse) than Gruvbox:
     " - git diff (bright green)
     " - nvim -d diff (DiffChange and DiffAdd are too similar, DiffDelete is too bright)
