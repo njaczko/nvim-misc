@@ -52,7 +52,9 @@ function M.configureRetrobox()
     " some things that are technically invalid markdown syntax (like unescaped
     " underscores) don't really cause issues for my use cases. the error
     " highlights are more of a nuisance than a help for me.
-    hi link markdownError Normal
+    autocmd FileType markdown hi link markdownError Normal
+    autocmd FileType markdown hi link htmlError Normal
+
 
     " tree sitter overrides
     " jsonnet
