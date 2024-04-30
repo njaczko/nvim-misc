@@ -1,5 +1,21 @@
 local M = {}
 
+
+
+-- configureGruvbox provides my custom configuration and overrides for the
+-- Gruvbox colorscheme (https://github.com/morhetz/gruvbox).
+--
+-- To use this configuration with Gruvbox, add the following to the lazy.nvim package manager config:
+-- {
+--   "morhetz/gruvbox",
+--   lazy = false, priority = 1000, -- make sure to load this before all the other start plugins
+--   dependencies = {
+--     "njaczko/nvim-misc", -- provides gruvbox configuration
+--   },
+--   config = function()
+--     require("configure-gruvbox").configureGruvbox()
+--   end,
+-- },
 function M.configureGruvbox()
   vim.cmd([[
     " this needs to be called before colorscheme. override colorscheme and use
