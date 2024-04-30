@@ -1,8 +1,5 @@
 local M = {}
 
--- openGithub opens the current line in the browser in github.com. It's a bit
--- fragile: the repo must have been cloned from GitHub using SSH. Opening a
--- range of lines is not supported.
 function M.configureRetrobox()
   vim.cmd([[
     " this needs to be called before colorscheme. override colorscheme and use
@@ -33,6 +30,8 @@ function M.configureRetrobox()
     highlight DiffDelete cterm=reverse ctermfg=167 ctermbg=235 gui=reverse guifg=#fb4934 guibg=#282828
     highlight Added ctermfg=142 guifg=#b8bb26 " GruvboxGreen
     highlight Removed ctermfg=167 guifg=#fb4934 " GruvboxRed
+    highlight WarningMsg ctermfg=167 guifg=#fb4934 " GruvboxRed
+    highlight ErrorMsg cterm=bold ctermfg=234 ctermbg=167 gui=bold guifg=#1c1c1c guibg=#fb4934 " GruvboxRed background
 
     highlight clear SignColumn " no background for line numbers
     " dark gray highlight for folded lines
@@ -64,6 +63,7 @@ function M.configureRetrobox()
     " json
     hi link @string.json Normal
 
+    " markdown and markdown_inline
     hi @punctuation.special.markdown ctermfg=245 guifg=#928374 " GruvboxGray
     hi @markup.list.markdown ctermfg=245 guifg=#928374 " GruvboxGray
     hi @markup.raw.markdown_inline ctermfg=108 guifg=#8ec07c " inline code blocks. GruvboxAqua

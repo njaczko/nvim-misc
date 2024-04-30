@@ -46,13 +46,6 @@ function M.configureGruvbox()
     hi link @markup.raw.markdown_inline GruvboxAqua " inline code blocks
     hi link @markup.link.label.markdown_inline GruvboxGray " URI references
     hi link @markup.link.url.markdown_inline GruvboxPurple " URI references
-
-    " TODO I don't think we need these anymore. everything looks OK.
-    " optimizing for backticks around inline code blocks. not great for italics and bold delmiters, but close enough
-    "hi link @punctuation.delimiter.markdown_inline GruvboxAqua
-    "hi link @punctuation.bracket.markdown_inline GruvboxGray " URI references
-    "hi link @punctuation.delimiter.markdown GruvboxAqua " code blocks
-    "hi link @text.literal.block.markdown Normal " code blocks
   ]])
 end
 
