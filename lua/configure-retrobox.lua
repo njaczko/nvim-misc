@@ -72,6 +72,9 @@ function M.configureRetrobox()
     hi @markup.raw.markdown_inline ctermfg=108 guifg=#8ec07c " inline code blocks. GruvboxAqua
     hi @markup.link.label.markdown_inline ctermfg=245 guifg=#928374 " URI references. GruvboxGray
     hi @markup.link.url.markdown_inline ctermfg=175 guifg=#d3869b " URI references. GruvboxPurple
+
+    " make visual selection background use same color as the syntax highlighting
+    hi! Visual cterm=reverse ctermfg=none ctermbg=Black
   ]])
 end
 
