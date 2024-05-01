@@ -31,8 +31,10 @@ function M.configureRetrobox()
     highlight Added ctermfg=142 guifg=#b8bb26 " GruvboxGreen
     highlight Removed ctermfg=167 guifg=#fb4934 " GruvboxRed
     highlight WarningMsg ctermfg=167 guifg=#fb4934 " GruvboxRed
+    highlight Exception ctermfg=167 guifg=#fb4934 " GruvboxRed
     highlight ErrorMsg cterm=bold ctermfg=234 ctermbg=167 gui=bold guifg=#1c1c1c guibg=#fb4934 " GruvboxRed background
     highlight Error cterm=bold ctermfg=234 ctermbg=167 gui=bold guifg=#1c1c1c guibg=#fb4934 " GruvboxRed background
+    highlight Todo cterm=bold ctermfg=223 ctermbg=234 gui=bold guifg=fg guibg=#1c1c1c
 
     highlight clear SignColumn " no background for line numbers
     " dark gray highlight for folded lines
