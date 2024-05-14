@@ -23,7 +23,7 @@ function M.configureRetrobox()
     highlight StatusLine cterm=reverse ctermfg=239 ctermbg=223 gui=bold,reverse guifg=#ebdbb2 guibg=#ebdbb2
     highlight Pmenu ctermfg=223 ctermbg=237 guifg=#ebdbb2 guibg=#3c3836
     highlight TabLineSel cterm=bold ctermfg=223 ctermbg=234 gui=bold guifg=#fbf1c7 guibg=#1c1c1c
-    highlight CurSearch ctermfg=0 ctermbg=11 guifg=NvimDarkGrey1 guibg=NvimLightYellow
+    highlight CurSearch cterm=reverse ctermfg=11 ctermbg=235 gui=reverse guifg=NvimLightYellow guibg=#282828
     highlight Search cterm=reverse ctermfg=214 ctermbg=235 gui=reverse guifg=#fabd2f guibg=#282828
     highlight DiffAdd cterm=reverse ctermfg=142 ctermbg=235 gui=reverse guifg=#b8bb26 guibg=#282828
     highlight DiffChange cterm=reverse ctermfg=108 ctermbg=235 gui=reverse guifg=#8ec07c guibg=#282828
