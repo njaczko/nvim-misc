@@ -67,6 +67,8 @@ function M.configureRetrobox()
     hi link @punctuation.bracket.jsonnet Normal
     " json
     hi link @string.json Normal
+    " yaml
+    hi link @string.yaml Normal
 
     " markdown and markdown_inline
     hi @punctuation.special.markdown ctermfg=245 guifg=#928374 " GruvboxGray
