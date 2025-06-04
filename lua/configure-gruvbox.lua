@@ -56,6 +56,8 @@ function M.configureGruvbox()
     hi link @punctuation.bracket.jsonnet Normal
     " json
     hi link @string.json Normal
+    " yaml
+    hi link @string.yaml Normal
 
     " markdown and markdown_inline
     hi link @punctuation.special.markdown GruvboxGray
