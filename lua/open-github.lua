@@ -12,7 +12,7 @@ function M.openGithub()
   end
 
   -- assumes the repo was cloned with SSH rather than HTTPS.
-  originURL  = exec('git remote get-url origin'):gsub("git@github.com:", "https://github.com/"):gsub("%.git", "")
+  originURL  = exec('git remote get-url origin'):gsub(":", "/"):gsub("git@", "https://"):gsub("%.git", "")
   defaultBranch = exec("git remote show origin | sed -n '/HEAD branch/s/.*: //p'")
   pathInRepo = exec(string.format("git ls-files --full-name %s", vim.fn.expand('%')))
   currentLineNum = unpack(vim.api.nvim_win_get_cursor(0))
