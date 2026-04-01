@@ -73,10 +73,19 @@ func calendar(t time.Time) ([]string, error) {
 	if err != nil {
 		return nil, err
 	}
-	return strings.Split(
-		strings.TrimSuffix(string(stdout), "\n"),
+
+	stdoutLines := strings.Split(
+		strings.TrimRight(string(stdout), " \n"),
 		"\n",
-	), nil
+	)
+
+	ret := make([]string, len(stdoutLines))
+
+	for i, line := range stdoutLines {
+		ret[i] = strings.TrimRight(line, " \n")
+	}
+
+	return ret, nil
 }
 
 // comment prepends "# " to each input line

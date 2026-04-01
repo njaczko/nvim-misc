@@ -7,8 +7,8 @@ import (
 	"jaczko.com/golang-vim-scripts/pkg/pipe"
 )
 
-// the Vim comman to use this function would be:
-// command -range -nargs=* MyCommand <line1>,<line2>!examplecommand <args>
+// the Vim command to use this function would be:
+// command -range -nargs=* MyCommand <line1>,<line2>!example <args>
 func main() {
 	input, err := pipe.ReadInput()
 	if err != nil {
