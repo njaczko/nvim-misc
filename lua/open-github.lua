@@ -11,11 +11,16 @@ function M.openGithub()
     return output
   end
 
-  -- assumes the repo was cloned with SSH rather than HTTPS.
+  -- Convert the SSH remote URL to the GitHub UI repo URL. Will not work if the
+  -- repo was cloned with HTTPS. e.g. git@github.com:myorganziation/myrepo.git is OK
+  -- but https://github.com/myorganziation/myrepo is not.
   originURL  = exec('git remote get-url origin'):gsub(":", "/"):gsub("git@", "https://"):gsub("%.git", "")
+
   defaultBranch = exec("git remote show origin | sed -n '/HEAD branch/s/.*: //p'")
   pathInRepo = exec(string.format("git ls-files --full-name %s", vim.fn.expand('%')))
   currentLineNum = unpack(vim.api.nvim_win_get_cursor(0))
+  -- To open on the blame view:
+  -- githubURL = string.format("%s/blame/%s/%s#L%s", originURL, defaultBranch, pathInRepo, currentLineNum)
   githubURL = string.format("%s/blob/%s/%s#L%s", originURL, defaultBranch, pathInRepo, currentLineNum)
   exec(string.format('open "%s"', githubURL))
 end
